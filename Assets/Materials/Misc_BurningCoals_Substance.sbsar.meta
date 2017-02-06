@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 8524ed6cc9740694586a746e7a6a64f3
-timeCreated: 1486129773
+timeCreated: 1486403567
 licenseType: Free
 SubstanceImporter:
   serializedVersion: 5
@@ -23,7 +23,7 @@ SubstanceImporter:
         texture: {instanceID: 0}
     - name: $randomseed
       value:
-        scalar[0]: 0
+        scalar[0]: 9179
         scalar[1]: 0
         scalar[2]: 0
         scalar[3]: 0
@@ -1512,7 +1512,7 @@ SubstanceImporter:
         second: {r: 1, g: 1, b: 1, a: 1}
       - first:
           name: _EmissionColor
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0.63235295, g: 0.63235295, b: 0.63235295, a: 1}
     textureParameters:
     - name: Misc_BurningCoals_Substance_basecolor
       alphaSource: 6

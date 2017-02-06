@@ -50,6 +50,7 @@ public class MineStone : MonoBehaviour {
                 else
                 {
                     hit = new RaycastHit();
+                    rayHit = null;
                 }
             }
             if(Physics.Raycast(ray, out hit, 2) && stones > 0)

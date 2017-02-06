@@ -8,6 +8,7 @@ public class Mine : MonoBehaviour {
     MineStone mineScript;
     CameraShake cameraShake;
     public GameObject PS_Sparks;
+    public GameObject PS_Impact;
     Animator animator;
     public AudioClip[] hitSound;
     AudioSource audio;
@@ -39,6 +40,8 @@ public class Mine : MonoBehaviour {
             audio.clip = hitSound[Random.Range(0, hitSound.Length)];
             audio.Play();
             mineScript.addStones = true;
+
+            Instantiate(PS_Impact, mineScript.hit.point, Quaternion.LookRotation(mineScript.hit.normal));
             Instantiate(PS_Sparks, mineScript.hit.point, Quaternion.LookRotation(mineScript.hit.normal));
             cameraShake.shakeDuration += 0.2f;
         }
