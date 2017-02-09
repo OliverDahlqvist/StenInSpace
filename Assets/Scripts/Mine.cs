@@ -35,11 +35,12 @@ public class Mine : MonoBehaviour {
 	}
     void Spark()
     {
-        if (mineScript.rayHit != null)
+        if (mineScript.rayHit != null && mineScript.stones < mineScript.inventorySize)
         {
             audio.clip = hitSound[Random.Range(0, hitSound.Length)];
             audio.Play();
             mineScript.addStones = true;
+            mineScript.stones += (int)mineScript.rayHit.stonesPerHit;
 
             Instantiate(PS_Impact, mineScript.hit.point, Quaternion.LookRotation(mineScript.hit.normal));
             Instantiate(PS_Sparks, mineScript.hit.point, Quaternion.LookRotation(mineScript.hit.normal));
