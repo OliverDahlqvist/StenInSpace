@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityStandardAssets.Utility;
 using Random = UnityEngine.Random;
-using System.Collections;
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -42,8 +41,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
-        public float oxygen = 100;
-        public float oxygenLoss = 0.01F;
 
         // Use this for initialization
         private void Start()
@@ -60,26 +57,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
 
-        void OnTriggerEnter(Collider other)
-        {
-            if (other.tag == "TempZone")
-                oxygenLoss = 0.1F;
-            if (other.tag == "TempZone2")
-                oxygenLoss = 0.3F;
-        }
 
-        void OnTriggerExit(Collider other)
+        // Update is called once per frame
+        private void Update()
         {
-            if(other.tag == "TempZone")
-                oxygenLoss = 0.01F;
-            if(other.tag == "TempZone2")
-                oxygenLoss = 0.01F;
-        }    
-
-    // Update is called once per frame
-    private void Update()
-        {
-            oxygen -= oxygenLoss;
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -100,7 +81,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
-
         }
 
 
