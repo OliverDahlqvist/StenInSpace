@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FPSController : MonoBehaviour {
 
-    public GameObject Camera;
+    public GameObject camera;
 
     public float moveSpeed = 2;
     public float lookSensitivity = 2;
@@ -39,7 +39,7 @@ public class FPSController : MonoBehaviour {
 
         move = new Vector3(moveLR, getGravity, moveFB);
         transform.Rotate(0, rotX, 0);
-        GetComponent<Camera>().transform.Rotate(-rotY, 0, 0);
+        camera.transform.Rotate(-rotY, 0, 0);
         //camera.transform.localRotation = Quaternion.Euler(rotY, 0, 0);
 
         move = transform.rotation * move;
