@@ -41,10 +41,7 @@ public class MineStone : MonoBehaviour {
                     rayHit = hit.collider.GetComponentInParent<Stone>();
                     if (rayHit != null && addStones)
                     {
-<<<<<<< HEAD
                         stones += (int)rayHit.stonesPerHit;
-=======
->>>>>>> 6995a69f0d403f4f5bdc8ebfa116d21e683d09cb
                         rayHit.UpdateStone();
                         rayHit.amountStones -= stonePerHit;
                     }
