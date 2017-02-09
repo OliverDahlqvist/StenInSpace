@@ -3,11 +3,11 @@ using System.Collections;
 
 public class MineStone : MonoBehaviour {
     Camera camera;
-    int stones;
+    public int stones;
     float upgradeCostPick;
     float upgradeCostInventory;
-    float stonePerHit;
-    float inventorySize;
+    public float stonePerHit;
+    public float inventorySize;
     public float mineRate = 1F;
     private float timestamp = 0F;
     private float credits;
@@ -36,13 +36,11 @@ public class MineStone : MonoBehaviour {
             if (Time.time >= timestamp && stones < inventorySize)
             {
                 timestamp = Time.time + mineRate;
-                
                 if (Physics.Raycast(ray, out hit, 2))
                 {
                     rayHit = hit.collider.GetComponentInParent<Stone>();
                     if (rayHit != null && addStones)
                     {
-                        stones += (int)stonePerHit;
                         rayHit.UpdateStone();
                         rayHit.amountStones -= stonePerHit;
                     }
