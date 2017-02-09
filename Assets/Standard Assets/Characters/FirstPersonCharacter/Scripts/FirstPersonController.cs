@@ -41,6 +41,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        public float oxygen = 100;
+        public float oxygenLoss = 0.01F;
+        public float oxLoss = 100;
 
         // Use this for initialization
         private void Start()
@@ -61,6 +64,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
+            oxygen -= oxygenLoss;
+            oxLoss -= oxygenLoss * Time.deltaTime;
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -81,6 +86,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+        }
+
+        void OnTriggerEnter(Collider other)
+        {
+            if(other.tag == "Sandstorm")
+                oxygenLoss = 0.1F;
+            if (other.tag == "Cave")
+                oxygenLoss = 0.05F;
+        }
+        void OnTriggerExit(Collider other)
+        {
+            if (other.tag == "Sandstorm")
+                oxygenLoss = 0.01F;
+            if (other.tag == "Cave")
+                oxygenLoss = 0.01F;
         }
 
 
