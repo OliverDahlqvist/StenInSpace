@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MineStone : MonoBehaviour {
     Camera camera;
-    int stones;
+    public int stones;
     float upgradeCostPick;
     float upgradeCostInventory;
     float stonePerHit;
