@@ -9,8 +9,9 @@ public class Stone : MonoBehaviour {
     GameObject r_03;
     GameObject r_04;
     GameObject currentObj;
-
+    public float stonesPerHit;
     void Start () {
+        
         amountStones = Random.Range(100, 200);
         perc = amountStones;
         r_01 = transform.Find("rock_01").gameObject;

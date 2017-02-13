@@ -6,8 +6,8 @@ public class MineStone : MonoBehaviour {
     public int stones;
     float upgradeCostPick;
     float upgradeCostInventory;
-    float stonePerHit;
-    float inventorySize;
+    public float stonePerHit;
+    public float inventorySize;
     public float mineRate = 1F;
     private float timestamp = 0F;
     private float credits;
@@ -42,7 +42,6 @@ public class MineStone : MonoBehaviour {
                     rayHit = hit.collider.GetComponentInParent<Stone>();
                     if (rayHit != null && addStones)
                     {
-                        stones += (int)stonePerHit;
                         rayHit.UpdateStone();
                         rayHit.amountStones -= stonePerHit;
                     }
